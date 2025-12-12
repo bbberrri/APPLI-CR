@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.gestionVisiteursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rapportsVisiteursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -39,8 +38,7 @@
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionVisiteursToolStripMenuItem,
-            this.rapportsVisiteursToolStripMenuItem});
+            this.gestionVisiteursToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(467, 24);
@@ -53,13 +51,6 @@
             this.gestionVisiteursToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.gestionVisiteursToolStripMenuItem.Text = "Gestion des visiteurs";
             this.gestionVisiteursToolStripMenuItem.Click += new System.EventHandler(this.gererLesVisiteursToolStripMenuItem_Click);
-            // 
-            // rapportsVisiteursToolStripMenuItem
-            // 
-            this.rapportsVisiteursToolStripMenuItem.Name = "rapportsVisiteursToolStripMenuItem";
-            this.rapportsVisiteursToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.rapportsVisiteursToolStripMenuItem.Text = "Rapports visiteurs";
-            this.rapportsVisiteursToolStripMenuItem.Click += new System.EventHandler(this.rapportsVisiteursToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -84,7 +75,6 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem gestionVisiteursToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rapportsVisiteursToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

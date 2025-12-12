@@ -19,11 +19,6 @@ namespace APPLI_CR
 
         private void gererLesVisiteursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void rapportsVisiteursToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             Form f = new FrmGestionVisiteurs();
             f.Show();
         }
