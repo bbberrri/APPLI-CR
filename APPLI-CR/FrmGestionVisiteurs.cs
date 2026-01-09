@@ -33,5 +33,16 @@ namespace APPLI_CR
         {
 
         }
+
+        private void btnAddVisiteur_Click(object sender, EventArgs e)
+        {
+            VisiteursDataGridView.Rows.Add(1, txtNom, txtPrenom, 1, 1234, txtAdresse, txtCP, 
+                                            txtVille, dtpDateEmbauche);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
