@@ -22,5 +22,10 @@ namespace APPLI_CR
             Form f = new FrmGestionVisiteurs();
             f.Show();
         }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -65,6 +65,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Name = "FrmMenu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
