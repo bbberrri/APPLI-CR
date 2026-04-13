@@ -19,6 +19,7 @@ namespace APPLI_CR
         public FrmGestionVisiteurs()
         {
             InitializeComponent();
+            btnValiderModification.Enabled = false;
             //this.BindDataGridView();
             //txtCp = new TextBox
             //{
@@ -211,6 +212,101 @@ namespace APPLI_CR
 
             // Stocker l'id dans le Tag du bouton pour la modification
             btnModifier.Tag = rowView["id"].ToString();
+
+            // Désactiver le bouton d'ajout
+            btnAddVisiteur.Enabled = false;
+
+            // Activer le bouton de validation de modification
+            btnValiderModification.Enabled = true;
+
         }
+
+        private void btnValiderModification_Click(object sender, EventArgs e)
+        {
+            if (btnModifier.Tag == null)
+            {
+                MessageBox.Show("Aucun visiteur sélectionné pour la modification.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string id = btnModifier.Tag.ToString();
+            string nom = txtNom.Text.Trim();
+            string prenom = txtPrenom.Text.Trim();
+            string adresse = txtAdresse.Text.Trim();
+            string cp = txtCP.Text.Trim();
+            string ville = txtVille.Text.Trim();
+            DateTime dateEmbauche = dtpDateEmbauche.Value;
+
+            string constring = @"Data Source=BB\BERRI;Initial Catalog=gsbrapports2016;Integrated Security=true";
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                string query = @"UPDATE visiteur SET nom = @nom, prenom = @prenom, adresse = @adresse, cp = @cp, ville = @ville, dateEmbauche = @dateEmbauche WHERE id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@nom", nom);
+                    cmd.Parameters.AddWithValue("@prenom", prenom);
+                    cmd.Parameters.AddWithValue("@adresse", adresse);
+                    cmd.Parameters.AddWithValue("@cp", cp);
+                    cmd.Parameters.AddWithValue("@ville", ville);
+                    cmd.Parameters.AddWithValue("@dateEmbauche", dateEmbauche);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    con.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Visiteur modifié avec succès.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucune modification effectuée.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            // Rafraîchir la liste
+            this.visiteurTableAdapter.Fill(this.gsbrapports2016DataSet.visiteur);
+            btnModifier.Tag = null;
+        }
+
+        // btnVoirRapports_Click
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (VisiteursDataGridView.CurrentRow == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un visiteur.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var rowView = VisiteursDataGridView.CurrentRow.DataBoundItem as DataRowView;
+            if (rowView == null)
+            {
+                MessageBox.Show("Impossible de récupérer les données du visiteur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string visiteurId = rowView["id"].ToString();
+            FrmListeRapports frm = new FrmListeRapports(visiteurId);
+            frm.ShowDialog();
+        }
+
+        // Cassé
+        //private void VisiteursDataGridView_Leave_1(object sender, EventArgs e)
+        //{
+        //    // Efface les champs
+        //    txtNom.Text = "";
+        //    txtPrenom.Text = "";
+        //    txtAdresse.Text = "";
+        //    txtCP.Text = "";
+        //    txtVille.Text = "";
+        //    dtpDateEmbauche.Value = DateTime.Now;
+
+        //    // Réactive le bouton d'ajout
+        //    btnAddVisiteur.Enabled = true;
+
+        //    // Réinitialise le tag de modification
+        //    btnModifier.Tag = null;
+        //}
     }
 }

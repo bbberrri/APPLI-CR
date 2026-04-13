@@ -61,6 +61,8 @@
             this.txtCP = new System.Windows.Forms.TextBox();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
+            this.btnValiderModification = new System.Windows.Forms.Button();
+            this.btnVoirRapports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VisiteursDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visiteurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visiteurBindingSource1)).BeginInit();
@@ -312,7 +314,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(450, 379);
+            this.btnModifier.Location = new System.Drawing.Point(256, 379);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 20;
@@ -320,11 +322,33 @@
             this.btnModifier.UseVisualStyleBackColor = true;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
+            // btnValiderModification
+            // 
+            this.btnValiderModification.Location = new System.Drawing.Point(722, 317);
+            this.btnValiderModification.Name = "btnValiderModification";
+            this.btnValiderModification.Size = new System.Drawing.Size(82, 33);
+            this.btnValiderModification.TabIndex = 21;
+            this.btnValiderModification.Text = "Valider modif";
+            this.btnValiderModification.UseVisualStyleBackColor = true;
+            this.btnValiderModification.Click += new System.EventHandler(this.btnValiderModification_Click);
+            // 
+            // btnVoirRapports
+            // 
+            this.btnVoirRapports.Location = new System.Drawing.Point(141, 379);
+            this.btnVoirRapports.Name = "btnVoirRapports";
+            this.btnVoirRapports.Size = new System.Drawing.Size(109, 23);
+            this.btnVoirRapports.TabIndex = 22;
+            this.btnVoirRapports.Text = "Voir les rapports";
+            this.btnVoirRapports.UseVisualStyleBackColor = true;
+            this.btnVoirRapports.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmGestionVisiteurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 410);
+            this.Controls.Add(this.btnVoirRapports);
+            this.Controls.Add(this.btnValiderModification);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.lblDateEmbauche);
@@ -390,5 +414,7 @@
         private System.Windows.Forms.TextBox txtCP;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Button btnValiderModification;
+        private System.Windows.Forms.Button btnVoirRapports;
     }
 }

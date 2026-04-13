@@ -58,6 +58,12 @@
     <Compile Include="FrmGestionVisiteurs.Designer.cs">
       <DependentUpon>FrmGestionVisiteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListeRapports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListeRapports.Designer.cs">
+      <DependentUpon>FrmListeRapports.cs</DependentUpon>
+    </Compile>
     <Compile Include="gsbrapports2016DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionVisiteurs.resx">
       <DependentUpon>FrmGestionVisiteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListeRapports.resx">
+      <DependentUpon>FrmListeRapports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
